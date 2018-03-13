@@ -14,16 +14,21 @@ namespace MembersLibrary
         private string emailAddress;
 
         //Public properties that everyone can see it
-        public string city;
+
         public string state;
         public string description;
-        public string profilePhoto;
+        public string Address;
+        public string EmailAddress;
+        public string Age;
+        public string Height;
+        public string CommitmentType;
+        public string Likes;
 
         //Private properties that only members can see
         private string phoneNumber;
-        private string interests;
+        private string occupation;
         private string favorites;
-
+        private string city;
         //Private properties that keep track of the persons request status
         private bool request;
 
@@ -59,10 +64,10 @@ namespace MembersLibrary
             set { phoneNumber = value; }
         }
 
-        public string Interests
+        public string Occupation
         {
-            get { return interests; }
-            set { interests = value; }
+            get { return Occupation; }
+            set { occupation = value; }
         }
 
         public string Favorites
