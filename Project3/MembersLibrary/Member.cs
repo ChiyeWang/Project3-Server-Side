@@ -15,14 +15,16 @@ namespace MembersLibrary
 
         //Public properties that everyone can see it
 
+        //changed the case of the variable names for consistency! so all of them begin
+        //with a lower case
         public string state;
         public string description;
-        public string Address;
-        public string EmailAddress;
-        public string Age;
-        public string Height;
-        public string CommitmentType;
-        public string Likes;
+        public string address;
+        public string contactEmail;
+        public string age;
+        public string height;
+        public string commitmentType;
+        public string likes;
 
         //Private properties that only members can see
         private string phoneNumber;
@@ -40,6 +42,11 @@ namespace MembersLibrary
             this.emailAddress = EmailAddress;
         }
 
+        public string UserName
+        {
+            get { return UserName; }
+            set { UserName = value; }
+        }
         public string Password
         {
             get { return password; }
