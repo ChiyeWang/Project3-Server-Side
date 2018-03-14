@@ -18,7 +18,7 @@ namespace MembersLibrary
         public string state;
         public string description;
         public string Address;
-        public string EmailAddress;
+        public string Email;
         public string Age;
         public string Height;
         public string CommitmentType;
