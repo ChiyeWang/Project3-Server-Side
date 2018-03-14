@@ -4,12 +4,15 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using MembersLibrary;
 
 namespace Project3
 {
     public partial class Homepage : System.Web.UI.Page
     {
         private bool userType;
+        DataManipulation data = new DataManipulation();
+        Member member;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -20,10 +23,11 @@ namespace Project3
         {
             if (txtUserName.Text != "" && txtPassword.Text != "" && txtFullName.Text != "" && txtEmail.Text != "") 
             {
-                //MemeberFunction.InsertMember(txtUserName.Text, txtPassword.Text, txtFullName.Text, txtEmail.Text);
+                member = new Member(txtUserName.Text, txtPassword.Text, txtFullName.Text, txtEmail.Text);
+                data.createMember(member);
                 txtUserName.Text = (string)Session["Username"]; // check duplicate ***
                 userType = true;                    // is a member
-                userType = (bool)Session["UserType"];
+
                 Response.Redirect("ProfilePage.aspx");
             }
             else

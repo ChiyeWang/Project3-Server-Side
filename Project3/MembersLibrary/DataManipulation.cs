@@ -10,7 +10,7 @@ using System.Data;
 namespace MembersLibrary
 {
     
-    class DataManipulation
+    public class DataManipulation
     {
         //for the public static methods that will manipulate member info - such as updating database
         static DBConnect objDB = new DBConnect();
@@ -29,10 +29,10 @@ namespace MembersLibrary
 
         }
 
-        public static void createMember(Member member)
+        public void createMember(Member member)
         {
 
-            String dbCommand = "INSERT INTO Members(Username, Password, FullName, EmailAddress" +
+            String dbCommand = "INSERT INTO Members(Username, Password, Fullname, EmailAddress" +
             "VALUES('" + member.userName + "','" + member.password + "','" + member.fullName + "','" +
             member.emailAddress + "');";
             objDB.DoUpdate(dbCommand);
@@ -40,18 +40,18 @@ namespace MembersLibrary
             //allow nulls for profile? or initialize to null or zero?
 
         }
-
+        /*
         public static void updateProfile(Member member)
         {
 
-            String dbCommand = "UPDATE Member SET City='" + member.city + "',State='"+member.state+ "',Description='" + member.description+ "',Address='" + member.address
-                + "',ContactEmail='" + member.contactEmail+ "',Age='" + member.age+ "',Height='" + member.height+ "',CommitmentType='" + member.commitmentType+ "',Likes='" + member.likes+
+            String dbCommand = "UPDATE Member SET City='" + member.City + "',State='"+member.state+ "',Description='" + member.description+ "',Address='" + member.address
+                + "',ContactEmail='" + member.Email+ "',Age='" + member.Age+ "',Height='" + member.height+ "',CommitmentType='" + member.commitmentType+ "',Likes='" + member.likes+
                 "',ProfilePhoto='" + member.profilePhoto+ "',PhoneNumber='" + member.phoneNumber+ "'" +
                 ",Occupation='" + member.occupation+ "',Favorites='" + member.favorites+ "' WHERE Username='"+member.userName+"';";
             objDB.DoUpdate(dbCommand);
 
         }
-
+        */
 
     }
 

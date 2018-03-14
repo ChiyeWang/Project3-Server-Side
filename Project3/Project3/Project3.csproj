@@ -67,8 +67,10 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DateRequest.aspx" />
     <Content Include="Main.css" />
     <Content Include="packages.config" />
+    <Content Include="Main.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -83,12 +85,26 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DateRequest.aspx.cs">
+      <DependentUpon>DateRequest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DateRequest.aspx.designer.cs">
+      <DependentUpon>DateRequest.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Homepage.aspx.cs">
       <DependentUpon>Homepage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Homepage.aspx.designer.cs">
       <DependentUpon>Homepage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Main.Master.cs">
+      <DependentUpon>Main.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main.Master.designer.cs">
+      <DependentUpon>Main.Master</DependentUpon>
     </Compile>
     <Compile Include="ProfilePage.aspx.cs">
       <DependentUpon>ProfilePage.aspx</DependentUpon>
@@ -110,6 +126,10 @@
     <Folder Include="pic\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MembersLibrary\MembersLibrary.csproj">
+      <Project>{1e061030-2c8d-421e-a804-3d459d29228f}</Project>
+      <Name>MembersLibrary</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Utilities\Utilities.csproj">
       <Project>{ae3b7221-6775-49ec-9442-9246a6b4675f}</Project>
       <Name>Utilities</Name>
