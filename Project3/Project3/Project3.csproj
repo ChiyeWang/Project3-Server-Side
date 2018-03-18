@@ -68,12 +68,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AllConversations.aspx" />
-    <Content Include="DateRequest.aspx" />
     <Content Include="DateRequestSetup.aspx" />
     <Content Include="IndividualConversation.aspx" />
     <Content Include="Main.css" />
     <Content Include="packages.config" />
-    <Content Include="Main.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -95,13 +93,6 @@
     <Compile Include="AllConversations.aspx.designer.cs">
       <DependentUpon>AllConversations.aspx</DependentUpon>
     </Compile>
-    <Compile Include="DateRequest.aspx.cs">
-      <DependentUpon>DateRequest.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="DateRequest.aspx.designer.cs">
-      <DependentUpon>DateRequest.aspx</DependentUpon>
-    </Compile>
     <Compile Include="DateRequestSetup.aspx.cs">
       <DependentUpon>DateRequestSetup.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -122,13 +113,6 @@
     </Compile>
     <Compile Include="IndividualConversation.aspx.designer.cs">
       <DependentUpon>IndividualConversation.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Main.Master.cs">
-      <DependentUpon>Main.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Main.Master.designer.cs">
-      <DependentUpon>Main.Master</DependentUpon>
     </Compile>
     <Compile Include="ProfilePage.aspx.cs">
       <DependentUpon>ProfilePage.aspx</DependentUpon>
