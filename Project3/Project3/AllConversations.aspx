@@ -11,14 +11,10 @@
         
            <h1>YOUR MESSAGES</h1>
         
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" ShowHeader="False">
+            <asp:GridView ID="gvAllConversations" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" ShowHeader="False" AutoGenerateSelectButton="True" OnSelectedIndexChanged="gvAllConversations_SelectedIndexChanged">
                 <Columns>
                     <asp:BoundField DataField="Receiver" HeaderText="Messenger" />
-                    <asp:TemplateField>
-                        <ItemTemplate>
-                            <asp:Button ID="btnSeeConversation" runat="server" Text="See Conversation" />
-                        </ItemTemplate>
-                    </asp:TemplateField>
+                    <asp:BoundField DataField="ConversationID" Visible="False" />
                 </Columns>
                 <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
                 <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />

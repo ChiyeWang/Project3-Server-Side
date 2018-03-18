@@ -14,7 +14,7 @@ namespace MembersLibrary
 
         public static void newRequest()
         {
-            String command = "INSERT INTO DateRequests ("
+            //String command = "INSERT INTO DateRequests ("
         }
     }
 }

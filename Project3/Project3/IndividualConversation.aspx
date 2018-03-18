@@ -34,7 +34,7 @@
     
     </div>
         <asp:TextBox ID="txtSendMessage" runat="server"></asp:TextBox>
-        <asp:Button ID="btnSendMessage" runat="server" Text="Send Message" />
+        <asp:Button ID="btnSendMessage" runat="server" Text="Send Message" OnClick="btnSendMessage_Click" />
         <asp:RequiredFieldValidator ID="ValSendMessage" runat="server" ControlToValidate="txtSendMessage" ErrorMessage="Required">*</asp:RequiredFieldValidator>
     </form>
 </body>
