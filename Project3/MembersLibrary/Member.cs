@@ -23,7 +23,7 @@ namespace MembersLibrary
         public string age { set; get; }
         public string height { set; get; }
         public string commitmentType { set; get; }
-        public string likes { set; get; }
+        public string likes { set; get; } 
         public string profilePhoto { set; get; }
 
         //Private properties that only members can see
