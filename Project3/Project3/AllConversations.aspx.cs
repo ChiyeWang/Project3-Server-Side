@@ -14,13 +14,15 @@ namespace Project3
         DataSet ds = objDB.GetDataSet("SELECT * FROM Conversation");
         protected void Page_Load(object sender, EventArgs e)
         {
-            gvAllConversations.DataSource = ds;
+            DataSet dsMyConversations = objDB.GetDataSet("SELECT * FROM Conversation Where Receiver = Tim");
+            gvAllConversations.DataSource = dsMyConversations;
             gvAllConversations.DataBind();
         }
 
         protected void gvAllConversations_SelectedIndexChanged(object sender, EventArgs e)
         {
             String conversationID = gvAllConversations.Rows[gvAllConversations.SelectedIndex].Cells[2].Text;
+            
             Session["conversationID"] = conversationID;
             Response.Redirect("~/IndividualConversation.aspx");
         }

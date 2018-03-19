@@ -31,10 +31,12 @@ namespace MembersLibrary
         }
         private static String SearchConversation(String personA, String personB)
         {
-            objCommand.CommandType = CommandType.StoredProcedure;
-            objCommand.CommandText = ""; //ADD
-            objDB.GetDataSetUsingCmdObj(objCommand);
             String conversationID = "";
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "SearchForConversation"; //ADD
+           // objCommand.Parameters.AddWithValue(personA, personB, conversationID);
+            objDB.GetDataSetUsingCmdObj(objCommand);
+            
 
             return conversationID;
             /*
