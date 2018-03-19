@@ -10,8 +10,10 @@ namespace Utilities
 {
     public class DBConnect
     {
+
         string SqlConnectString = "server=127.0.0.1,5555;Database=sp18_3342_tug34137;User id=tug34137;Password=HeicuR3v";
         //String SqlConnectString = "server=cis-mssql1.temple.edu;Database=sp18_3342_tug34137;User id=tug34137;Password=HeicuR3v";
+
         SqlConnection myConnectionSql;
         SqlCommand objCmd;
         SqlDataReader objDataReader;
@@ -30,7 +32,7 @@ namespace Utilities
         {         
             SqlDataAdapter myDataAdapter = new SqlDataAdapter(SqlSelect, myConnectionSql);
             DataSet myDataSet = new DataSet();
-            myDataAdapter.Fill(myDataSet);
+            //myDataAdapter.Fill(myDataSet);
             ds = myDataSet;
             return myDataSet;
         }

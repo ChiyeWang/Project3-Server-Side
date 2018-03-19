@@ -25,11 +25,13 @@
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" style="font-size:40px" >Temple</a>
+                <a class="navbar-brand" style="font-size:40px" >StudentMeetStudent</a>
             </div>
             <ul class="nav navbar-nav" style="font-size:20px">
                 <li><a href="../ProfilePage.aspx">Profile</a></li>
                 <li><a href="../search.aspx">Search</a></li>
+                <li><a href="../DateRequests.aspx">Requests</a></li>
+                <li><a href="../AllConversations.aspx">Messages</a></li>
                 <li class="active"><a href="../Login.aspx">Log out</a></li>
             </ul>
         </div>

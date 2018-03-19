@@ -23,8 +23,10 @@ namespace MembersLibrary
         public string age { set; get; }
         public string height { set; get; }
         public string commitmentType { set; get; }
+
         public string likes { set; get; }
         public string jobType { set; get; }
+
 
         //Private properties that only members can see
         public string phoneNumber { set; get; }
