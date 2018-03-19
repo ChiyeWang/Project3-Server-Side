@@ -41,6 +41,7 @@ namespace Project3
             String requestIDString = gvActive.SelectedRow.Cells[0].ToString();
             Session["RequestID"] = requestIDString;
             Response.Redirect("~/DateRequestSetup.aspx");
+            Response.Write("ID STRING: "+requestIDString);
         }
 
         protected void gvReceived_SelectedIndexChanged(object sender, EventArgs e)
@@ -52,14 +53,16 @@ namespace Project3
         protected void btnDecline_Click(object sender, EventArgs e)
         {
             DateRequestClass.rejectDate(requestID);
-            Response.Redirect("~/DateRequests.aspx");
+            //Response.Redirect("~/DateRequests.aspx");
+            bindData();
 
         }
 
         protected void btnAccept_Click(object sender, EventArgs e)
         {
             DateRequestClass.acceptDate(Convert.ToInt32(requestID));
-            Response.Redirect("~/DateRequests.aspx");
+            //Response.Redirect("~/DateRequests.aspx");
+            bindData();
         }
     }
 }

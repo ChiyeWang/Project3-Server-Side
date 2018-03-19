@@ -16,10 +16,10 @@ namespace Project3
         protected void Page_Load(object sender, EventArgs e)
         {
             //DEBUG - USER Kristina
-            String user = "Kristina";
+            String user = "Bob";
             
-            //gvAllConversations.DataSource = dsMyConversations;
-            //gvAllConversations.DataBind();
+           // gvAllConversations.DataSource = CommunicationClass.
+            gvAllConversations.DataBind();
         }
 
         protected void gvAllConversations_SelectedIndexChanged(object sender, EventArgs e)

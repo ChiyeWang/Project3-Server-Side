@@ -33,7 +33,7 @@
         <h1>DATE REQUESTS RECEIVED</h1>
         <asp:GridView ID="gvReceived" runat="server" AutoPostBack="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" EmptyDataText="None at this time" OnSelectedIndexChanged="gvReceived_SelectedIndexChanged" Width="250px">
             <Columns>
-                <asp:BoundField DataField="RequestID" Visible="False" />
+                <asp:BoundField DataField="RequestID" />
                 <asp:BoundField DataField="Sender" HeaderText="Sent By" />
                 <asp:TemplateField>
                     <ItemTemplate>

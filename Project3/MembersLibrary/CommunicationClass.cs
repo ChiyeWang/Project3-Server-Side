@@ -16,68 +16,54 @@ namespace MembersLibrary
         public static DataSet dsMessages = objDB.GetDataSet("SELECT * FROM Message"); //ADD
         public static SqlCommand objCommand = new SqlCommand();
 
-        public static void NewConversation(String personA, String personB)
+        public static void newConversation(String sender, String receiver)
         {
+            SqlCommand objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
-            objCommand.CommandText = ""; //ADD
+            objCommand.CommandText = "NewConversation"; //ADD
+            objCommand.Parameters.AddWithValue("Sender", sender);
+            objCommand.Parameters.AddWithValue("Receiver", receiver);
             objDB.GetDataSetUsingCmdObj(objCommand);
-            /*
-            String command1 = "INSERT INTO Conversation (Sender, Receiver) VALUE ('" +
-                personA + "','" + personB + "');";
-            String command2 = "INSERT INTO Conversation (Sender, Receiver) VALUE ('" +
-                personB + "','" + personA + "');";
-            objDB.DoUpdate(command1);
-            objDB.DoUpdate(command2);*/
         }
-        private static String SearchConversation(String personA, String personB)
+        public static DataSet searchConversation(String sender, String receiver)
         {
-            String conversationID = "";
+            SqlCommand objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
             objCommand.CommandText = "SearchForConversation"; //ADD
-           // objCommand.Parameters.AddWithValue(personA, personB, conversationID);
-            objDB.GetDataSetUsingCmdObj(objCommand);
+            objCommand.Parameters.AddWithValue("Sender", sender);
+            objCommand.Parameters.AddWithValue("Receiver", receiver);
+            return objDB.GetDataSetUsingCmdObj(objCommand);
+        }
+
+        public static DataSet getMessages(int conversationID)
+        {
+            SqlCommand objCommand = new SqlCommand();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "GetAllMessages"; //ADD
+            objCommand.Parameters.AddWithValue("theConversationID", conversationID);
             
-
-            return conversationID;
-            /*
-            DataSet conversation = objDB.GetDataSet("SELECT ConversationID FROM Conversation WHERE Sender = '" +
-                personA + "' AND Receiver = '" + personB+"';");
-            // return conversation;
-            String conversationID = "";
-            conversationID = conversation.Tables[0].Rows[0][0].ToString(); // TEST
-            return conversationID;*/
+            return objDB.GetDataSetUsingCmdObj(objCommand);
+        }
+        public static void insertMessage(String conversationID, String user,String content)
+        {
+            SqlCommand objCommand = new SqlCommand();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "InsertMessage"; //ADD
+            objCommand.Parameters.AddWithValue("conversationID", conversationID);
+            objCommand.Parameters.AddWithValue("sender", user);
+            objCommand.Parameters.AddWithValue("content", content);
+            objDB.GetDataSetUsingCmdObj(objCommand);
         }
 
-        public static void GetMessages(String personA, String personB)
+        public static void deleteMessage(String conversationID, String user, String content)
         {
+            SqlCommand objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
-            objCommand.CommandText = ""; //ADD
+            objCommand.CommandText = "InsertMessage"; //ADD
+            objCommand.Parameters.AddWithValue("conversationID", conversationID);
+            objCommand.Parameters.AddWithValue("sender", user);
+            objCommand.Parameters.AddWithValue("content", content);
             objDB.GetDataSetUsingCmdObj(objCommand);
-            /*
-            String conversationID = SearchConversation(personA, personB);
-            String command = "SELECT Sender, Content FROM Message WHERE ConversationID = '"+conversationID+
-                "' ORDER BY MessageID ASC";
-            objDB.DoUpdate(command);*/
-        }
-        public static void InsertMessage(String personA, String conversationID, String content)
-        {
-            objCommand.CommandType = CommandType.StoredProcedure;
-            objCommand.CommandText = ""; //ADD
-            objDB.GetDataSetUsingCmdObj(objCommand);
-            /*
-            String command = "INSERT INTO Message (ConversationID, Sender, Content) VALUES ('" +
-                conversationID + "','" + personA + "','" + content + "');";
-            objDB.DoUpdate(command);*/
-        }
-        public static void DeleteMessage(String personA, String conversationID, String content)
-        {
-            objCommand.CommandType = CommandType.StoredProcedure;
-            objCommand.CommandText = ""; //ADD
-            objDB.GetDataSetUsingCmdObj(objCommand);
-            /*   
-            String command = "DELETE FROM Message WHERE ConversationID =" +
-                conversationID + " AND Sender = '" + personA + "' AND Content = '" + content + "';"; //CHECK
-            objDB.DoUpdate(command);*/
         }
     }
 
