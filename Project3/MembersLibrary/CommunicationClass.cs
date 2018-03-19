@@ -35,6 +35,16 @@ namespace MembersLibrary
             return objDB.GetDataSetUsingCmdObj(objCommand);
         }
 
+        public static DataSet myConversation(String sender)
+        {
+            SqlCommand objCommand = new SqlCommand();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "GetAllConversations"; //ADD
+            objCommand.Parameters.AddWithValue("user", sender);
+            
+            return objDB.GetDataSetUsingCmdObj(objCommand);
+        }
+
         public static DataSet getMessages(int conversationID)
         {
             SqlCommand objCommand = new SqlCommand();

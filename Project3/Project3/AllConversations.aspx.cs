@@ -16,9 +16,9 @@ namespace Project3
         protected void Page_Load(object sender, EventArgs e)
         {
             //DEBUG - USER Kristina
-            String user = "Bob";
-            
-           // gvAllConversations.DataSource = CommunicationClass.
+            String user = "Jen";
+
+            gvAllConversations.DataSource = CommunicationClass.myConversation(user);
             gvAllConversations.DataBind();
         }
 

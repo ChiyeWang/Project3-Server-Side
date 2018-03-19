@@ -16,16 +16,16 @@ namespace Project3
         DataSet ds = objDB.GetDataSet("SELECT * FROM Message");
         protected void Page_Load(object sender, EventArgs e)
         {
-            conversationID = Session["conversationID"].ToString();
-            DataSet dsMessages = objDB.GetDataSet("SELECT * FROM Message WHERE ConversationID = "+conversationID+";");
-            gvMessages.DataSource = dsMessages;
+
+            //conversationID = Session["conversationID"].ToString();
+            conversationID = "BobJen";
+            gvMessages.DataSource = CommunicationClass.getMessages(Convert.ToInt32(conversationID));
             gvMessages.DataBind();
         }
 
         protected void btnSendMessage_Click(object sender, EventArgs e)
         {
-            CommunicationClass.InsertMessage(Session[""].ToString(),Session["conversationID"].ToString(),txtSendMessage.Text);
-            txtSendMessage.Text = "";
+            
         }
 
     }
