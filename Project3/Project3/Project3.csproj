@@ -69,10 +69,12 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DateRequest.aspx" />
+    <Content Include="AllConversations.aspx" />
+    <Content Include="DateRequests.aspx" />
+    <Content Include="DateRequestSetup.aspx" />
+    <Content Include="IndividualConversation.aspx" />
     <Content Include="Main.css" />
     <Content Include="packages.config" />
-    <Content Include="Main.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -89,12 +91,26 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DateRequest.aspx.cs">
-      <DependentUpon>DateRequest.aspx</DependentUpon>
+    <Compile Include="AllConversations.aspx.cs">
+      <DependentUpon>AllConversations.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="DateRequest.aspx.designer.cs">
-      <DependentUpon>DateRequest.aspx</DependentUpon>
+    <Compile Include="AllConversations.aspx.designer.cs">
+      <DependentUpon>AllConversations.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DateRequests.aspx.cs">
+      <DependentUpon>DateRequests.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DateRequests.aspx.designer.cs">
+      <DependentUpon>DateRequests.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DateRequestSetup.aspx.cs">
+      <DependentUpon>DateRequestSetup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DateRequestSetup.aspx.designer.cs">
+      <DependentUpon>DateRequestSetup.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -103,12 +119,12 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Main.Master.cs">
-      <DependentUpon>Main.Master</DependentUpon>
+    <Compile Include="IndividualConversation.aspx.cs">
+      <DependentUpon>IndividualConversation.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Main.Master.designer.cs">
-      <DependentUpon>Main.Master</DependentUpon>
+    <Compile Include="IndividualConversation.aspx.designer.cs">
+      <DependentUpon>IndividualConversation.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProfilePage.aspx.cs">
       <DependentUpon>ProfilePage.aspx</DependentUpon>
