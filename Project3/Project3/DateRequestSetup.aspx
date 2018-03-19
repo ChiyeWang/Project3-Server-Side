@@ -37,6 +37,20 @@
     <form id="form1" runat="server">
     <div>
         DATE PARTICIPANTS<br />
+        <asp:GridView ID="gvParticipants" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal">
+            <Columns>
+                <asp:BoundField DataField="Sender" HeaderText="Participant 1" />
+                <asp:BoundField DataField="Receiver" HeaderText="Participant 2" />
+            </Columns>
+            <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
+            <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
+            <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
+            <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
+            <SortedAscendingCellStyle BackColor="#F7F7F7" />
+            <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
+            <SortedDescendingCellStyle BackColor="#E5E5E5" />
+            <SortedDescendingHeaderStyle BackColor="#242121" />
+        </asp:GridView>
         <asp:TextBox ID="txtParticipant1" runat="server" BorderStyle="None" ReadOnly="True"></asp:TextBox>
         <br />
         <asp:TextBox ID="txtParticipant2" runat="server" BorderStyle="None" ReadOnly="True"></asp:TextBox>

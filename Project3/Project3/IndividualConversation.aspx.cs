@@ -30,6 +30,8 @@ namespace Project3
         {
             String content = txtSendMessage.Text;
             CommunicationClass.insertMessage(conversationID, user, content);
+            gvMessages.DataSource = CommunicationClass.getMessages(conversationID);
+            gvMessages.DataBind();
         }
 
         protected void gvMessages_SelectedIndexChanged(object sender, EventArgs e)
@@ -38,6 +40,8 @@ namespace Project3
             int messageID = Convert.ToInt32(gvMessages.Rows[gvMessages.SelectedIndex].Cells[3].Text);
             Session["conversationID"] = conversationID;
             CommunicationClass.deleteMessage(messageID);
+            gvMessages.DataSource = CommunicationClass.getMessages(conversationID);
+            gvMessages.DataBind();
         }
 
         

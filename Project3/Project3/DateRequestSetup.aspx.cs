@@ -12,17 +12,24 @@ namespace Project3
 {
     public partial class DateRequestSetup : System.Web.UI.Page
     {
+        String requestID;
         protected void Page_Load(object sender, EventArgs e)
         {
-            txtParticipant1.Text = "Tim";
-            txtParticipant2.Text = "Jane";
+            if (!IsPostBack) {
+                 requestID = Session["RequestID"].ToString();
+                //DateRequestClass.
+                gvParticipants.DataSource = DateRequestClass.dateDetails(Convert.ToInt32(requestID));
+                gvParticipants.DataBind();
+            }
+            
             
         }
 
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
             //String requestID = Session["RequestID"].ToString();
-            DateRequestClass.updateDateTimeLocation("TimJane", "February 15th", "11pm", "Times Square");
+            DateRequestClass.updateDateTimeLocation(requestID , txtDate.Text, txtTime.Text, txtLocation.Text);
+
         }
     }
 }
