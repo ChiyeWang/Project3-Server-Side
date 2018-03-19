@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Homepage.aspx.cs" Inherits="Project3.Homepage" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="Project3.Homepage" %>
 
 <!DOCTYPE html>
 
@@ -43,7 +43,7 @@
 
 
      
-        <asp:Button ID="btnGuest" runat="server" Text="Continue as Guest" style="z-index: 1; left: 550px; top: 422px; position: absolute"  Font-Size="30px"/>
+        <asp:Button ID="btnGuest" runat="server" Text="Continue as Guest" style="z-index: 1; left: 550px; top: 422px; position: absolute"  Font-Size="30px" OnClick="btnGuest_Click"/>
 
         <asp:Label ID="lblError" runat="server" Font-Bold="True" Font-Size="15px" style="z-index: 1; left: 550px; top: 303px; position: absolute; width: 138px; height: 23px; margin-top: 0px" Text="Label" ForeColor="Red" Visible="False"></asp:Label>
 
