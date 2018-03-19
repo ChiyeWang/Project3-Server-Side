@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AllConversations.aspx" />
+    <Content Include="DateRequests.aspx" />
     <Content Include="DateRequestSetup.aspx" />
     <Content Include="IndividualConversation.aspx" />
     <Content Include="Main.css" />
@@ -92,6 +93,13 @@
     </Compile>
     <Compile Include="AllConversations.aspx.designer.cs">
       <DependentUpon>AllConversations.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DateRequests.aspx.cs">
+      <DependentUpon>DateRequests.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DateRequests.aspx.designer.cs">
+      <DependentUpon>DateRequests.aspx</DependentUpon>
     </Compile>
     <Compile Include="DateRequestSetup.aspx.cs">
       <DependentUpon>DateRequestSetup.aspx</DependentUpon>
