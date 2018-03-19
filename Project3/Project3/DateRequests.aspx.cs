@@ -41,7 +41,7 @@ namespace Project3
             String requestIDString = gvActive.SelectedRow.Cells[0].ToString();
             Session["RequestID"] = requestIDString;
             Response.Redirect("~/DateRequestSetup.aspx");
-            Response.Write("ID STRING: "+requestIDString);
+            //Response.Write("ID STRING: "+requestIDString);
         }
 
         protected void gvReceived_SelectedIndexChanged(object sender, EventArgs e)
