@@ -18,8 +18,9 @@ namespace Project3
         {
 
             //conversationID = Session["conversationID"].ToString();
+            //debug
             conversationID = "BobJen";
-            gvMessages.DataSource = CommunicationClass.getMessages(Convert.ToInt32(conversationID));
+            gvMessages.DataSource = CommunicationClass.getMessages(conversationID);
             gvMessages.DataBind();
         }
 
