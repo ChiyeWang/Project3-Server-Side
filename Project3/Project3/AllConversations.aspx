@@ -10,7 +10,7 @@
     <form id="form1" runat="server">
         
            <h1>YOUR MESSAGES</h1>
-        
+            To see conversation, click the "Select" button to the left of the conversation.
             <asp:GridView ID="gvAllConversations" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" ShowHeader="False" AutoGenerateSelectButton="True" OnSelectedIndexChanged="gvAllConversations_SelectedIndexChanged">
                 <Columns>
                     <asp:BoundField DataField="Receiver" HeaderText="Messenger" />

@@ -30,7 +30,7 @@ namespace Utilities
         {         
             SqlDataAdapter myDataAdapter = new SqlDataAdapter(SqlSelect, myConnectionSql);
             DataSet myDataSet = new DataSet();
-            myDataAdapter.Fill(myDataSet);
+            //myDataAdapter.Fill(myDataSet);
             ds = myDataSet;
             return myDataSet;
         }
