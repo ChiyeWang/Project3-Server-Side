@@ -47,11 +47,22 @@ namespace MembersLibrary
             SqlCommand objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
             objCommand.CommandText = "UpdateDate"; //ADD
+            
             objCommand.Parameters.AddWithValue("@theRequestID", Convert.ToInt32(requestID));
             objCommand.Parameters.AddWithValue("@theDate", date);
             objCommand.Parameters.AddWithValue("@theTime", time);
             objCommand.Parameters.AddWithValue("@theLocation", Location);
             objDB.GetDataSetUsingCmdObj(objCommand);
+        }
+
+        public static DataSet dateDetails(int requestID)
+        {
+            SqlCommand objCommand = new SqlCommand();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "GetDateDetails"; //ADD
+            objCommand.Parameters.AddWithValue("RequestID", requestID);
+            return objDB.GetDataSetUsingCmdObj(objCommand);
+            //String result = "";
         }
 
         public static DataSet getReceivedRequests(String member)

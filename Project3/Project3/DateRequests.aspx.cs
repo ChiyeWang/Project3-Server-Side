@@ -21,10 +21,13 @@ namespace Project3
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["Username"] = "Alphonse"; //DEBUG ACCOUNT
+            if (!IsPostBack) {
+                Session["User"] = "Ed"; //DEBUG ACCOUNT
+
+                username = Session["User"].ToString();
+                bindData();
+            }
             
-            username = Session["Username"].ToString();
-            bindData();
         }
 
         protected void bindData()
@@ -38,31 +41,57 @@ namespace Project3
         }
         protected void gvActive_SelectedIndexChanged(object sender, EventArgs e)
         {
-            String requestIDString = gvActive.SelectedRow.Cells[0].ToString();
+            requestIDString = gvActive.SelectedRow.Cells[0].Text;
             Session["RequestID"] = requestIDString;
             Response.Redirect("~/DateRequestSetup.aspx");
-            Response.Write("ID STRING: "+requestIDString);
+            //Response.Write("ID STRING: "+requestIDString);
         }
 
         protected void gvReceived_SelectedIndexChanged(object sender, EventArgs e)
         {
-            requestIDString = gvReceived.SelectedRow.Cells[0].ToString();
-            requestID = Convert.ToInt32(requestIDString);
+            requestIDString = gvReceived.SelectedRow.Cells[0].Text;
+            requestID = Convert.ToInt32(requestIDString); //DEBUG HERE
+            
         }
 
-        protected void btnDecline_Click(object sender, EventArgs e)
-        {
-            DateRequestClass.rejectDate(requestID);
-            //Response.Redirect("~/DateRequests.aspx");
-            bindData();
 
+
+        protected void gvReceived_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            //requestID = Convert.ToInt32(gvReceived.SelectedRow.Cells[0].Text);
+            if(e.CommandName == "Accept")
+            {
+                int rowIndex = Convert.ToInt32(e.CommandArgument);
+                //requestIDString = gvReceived.SelectedRow.Cells[0].Text;
+                requestIDString = gvReceived.Rows[rowIndex].Cells[0].Text;
+                requestID = Convert.ToInt32(requestIDString); //DEBUG HERE
+                DateRequestClass.acceptDate(requestID);
+                bindData();
+            }
+            else
+            {
+                int rowIndex = Convert.ToInt32(e.CommandArgument);
+                //requestIDString = gvReceived.SelectedRow.Cells[0].Text;
+                requestIDString = gvReceived.Rows[rowIndex].Cells[0].Text;
+                requestID = Convert.ToInt32(requestIDString); //DEBUG HERE
+                DateRequestClass.rejectDate(requestID);
+                bindData();
+            }
         }
 
-        protected void btnAccept_Click(object sender, EventArgs e)
+        protected void gvActive_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            DateRequestClass.acceptDate(Convert.ToInt32(requestID));
-            //Response.Redirect("~/DateRequests.aspx");
-            bindData();
+            if (e.CommandName == "SeeConversation")
+            {
+                int rowIndex = Convert.ToInt32(e.CommandArgument);
+                //requestIDString = gvReceived.SelectedRow.Cells[0].Text;
+                requestIDString = gvActive.Rows[rowIndex].Cells[0].Text;
+                //requestID = Convert.ToInt32(requestIDString); //DEBUG HERE
+                Session["RequestID"] = requestIDString;
+                Response.Redirect("~/DateRequestSetup.aspx");
+                //DateRequestClass.acceptDate(requestID);
+                bindData();
+            }
         }
     }
 }

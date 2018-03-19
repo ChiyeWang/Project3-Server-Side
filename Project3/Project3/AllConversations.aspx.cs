@@ -17,14 +17,14 @@ namespace Project3
         {
             //DEBUG - USER Kristina
             String user = "Jen";
-
+            //String user = Session["User"].ToString();
             gvAllConversations.DataSource = CommunicationClass.myConversation(user);
             gvAllConversations.DataBind();
         }
 
         protected void gvAllConversations_SelectedIndexChanged(object sender, EventArgs e)
         {
-            String conversationID = gvAllConversations.Rows[gvAllConversations.SelectedIndex].Cells[2].Text;
+            String conversationID = gvAllConversations.Rows[gvAllConversations.SelectedIndex].Cells[0].Text;
             
             Session["conversationID"] = conversationID;
             Response.Redirect("~/IndividualConversation.aspx");

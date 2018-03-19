@@ -14,19 +14,36 @@ namespace Project3
         String conversationID;
         static DBConnect objDB = new DBConnect();
         DataSet ds = objDB.GetDataSet("SELECT * FROM Message");
+        String user;
         protected void Page_Load(object sender, EventArgs e)
         {
 
             //conversationID = Session["conversationID"].ToString();
+            //debug
             conversationID = "BobJen";
-            gvMessages.DataSource = CommunicationClass.getMessages(Convert.ToInt32(conversationID));
+            user = "Bob";//DEBUG
+            gvMessages.DataSource = CommunicationClass.getMessages(conversationID);
             gvMessages.DataBind();
         }
 
         protected void btnSendMessage_Click(object sender, EventArgs e)
         {
-            
+            String content = txtSendMessage.Text;
+            CommunicationClass.insertMessage(conversationID, user, content);
+            gvMessages.DataSource = CommunicationClass.getMessages(conversationID);
+            gvMessages.DataBind();
         }
 
+        protected void gvMessages_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //String conversationID = gvMessages.Rows[gvMessages.SelectedIndex].Cells[3].Text;
+            int messageID = Convert.ToInt32(gvMessages.Rows[gvMessages.SelectedIndex].Cells[3].Text);
+            Session["conversationID"] = conversationID;
+            CommunicationClass.deleteMessage(messageID);
+            gvMessages.DataSource = CommunicationClass.getMessages(conversationID);
+            gvMessages.DataBind();
+        }
+
+        
     }
 }
