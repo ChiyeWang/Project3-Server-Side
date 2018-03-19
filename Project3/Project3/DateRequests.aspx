@@ -39,14 +39,22 @@
     <form id="form1" runat="server">
     <div>
     <h1>ACTIVE DATES</h1>
-        <asp:GridView ID="gvActive" runat="server" AutoPostBack="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" EmptyDataText="None at this time" OnSelectedIndexChanged="gvActive_SelectedIndexChanged" OnRowCommand="gvActive_RowCommand">
+        <asp:GridView ID="gvActive" runat="server" 
+            AutoPostBack="False" AutoGenerateColumns="False" 
+            BackColor="White" BorderColor="White" BorderWidth="20px" 
+            CellPadding="4" ForeColor="Black" GridLines="Horizontal" 
+            EmptyDataText="None at this time" 
+            OnRowCommand="gvActive_RowCommand" Width="500px">
             <Columns>
                 <asp:BoundField DataField="RequestID" Visible="False" />
                 <asp:BoundField DataField="Sender" HeaderText="Partcipant 1" />
                 <asp:BoundField DataField="Receiver" HeaderText="Participant 2" />
                 <asp:TemplateField ShowHeader="False">
                     <ItemTemplate>
-                        <asp:Button ID="Button1" runat="server" CausesValidation="False"  Text="DETAILS"  CommandArgument='<%# Container.DataItemIndex %>' CommandName="SeeConversation" UseSubmitBehavior="False" />
+                        <asp:Button ID="Button1" runat="server" 
+                            CausesValidation="False"  Text="DETAILS"  
+                            CommandArgument='<%# Container.DataItemIndex %>' 
+                            CommandName="SeeConversation" UseSubmitBehavior="False" PostBackUrl="~/DateRequestSetup.aspx" />
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
@@ -61,12 +69,17 @@
             <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
             <SortedDescendingCellStyle BackColor="#E5E5E5" />
             <SortedDescendingHeaderStyle BackColor="#242121" />
-        </asp:GridView>
+        </asp:GridView><hr />
         <br />
         <h1>DATE REQUESTS RECEIVED</h1>
-        <asp:GridView ID="gvReceived" runat="server" AutoPostBack="False" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" EmptyDataText="None at this time" OnSelectedIndexChanged="gvReceived_SelectedIndexChanged" Width="250px" OnRowCommand="gvReceived_RowCommand">
+        <asp:GridView ID="gvReceived" runat="server"
+             AutoPostBack="False" AutoGenerateColumns="False" 
+            BackColor="White" BorderColor="White" BorderWidth="20px" 
+            CellPadding="4" ForeColor="Black" GridLines="Horizontal" 
+            EmptyDataText="None at this time" OnSelectedIndexChanged="gvReceived_SelectedIndexChanged" 
+            Width="500px" OnRowCommand="gvReceived_RowCommand">
             <Columns>
-                <asp:BoundField DataField="RequestID" Visible="True" />
+                <asp:BoundField DataField="RequestID" Visible="False" />
                 <asp:BoundField DataField="Sender" HeaderText="Sent By" />
                 <asp:TemplateField ShowHeader="False">
                     <ItemTemplate>
@@ -90,10 +103,10 @@
             <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
             <SortedDescendingCellStyle BackColor="#E5E5E5" />
             <SortedDescendingHeaderStyle BackColor="#242121" />
-        </asp:GridView>
+        </asp:GridView><hr />
         <br />
         <h1>DATE REQUESTS SENT</h1>
-        <asp:GridView ID="gvSent" runat="server" AutoPostBack="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" EmptyDataText="None at this time">
+        <asp:GridView ID="gvSent" runat="server" AutoPostBack="True" AutoGenerateColumns="False" BackColor="White" BorderColor="White" BorderWidth="20px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" EmptyDataText="None at this time" Width="500px">
             <Columns>
                 <asp:BoundField DataField="RequestID" Visible="False" />
                 <asp:BoundField DataField="Receiver" HeaderText="Sent To" />

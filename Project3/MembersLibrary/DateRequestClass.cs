@@ -42,13 +42,37 @@ namespace MembersLibrary
             objDB.GetDataSetUsingCmdObj(objCommand);
             //String result = "";
         }
-        public static void updateDateTimeLocation(String requestID, String date, String time, String Location)
+        public static void updateDateTimeLocation(int requestID, String date, String time, String Location)
         {
             SqlCommand objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
             objCommand.CommandText = "UpdateDate"; //ADD
+            /*
+            SqlParameter request = new SqlParameter("@theRequestID", requestID);
+            request.Direction = ParameterDirection.Input;
+            request.SqlDbType = SqlDbType.Int;
+            request.Size = 50;
+            objCommand.Parameters.Add(request);
             
-            objCommand.Parameters.AddWithValue("@theRequestID", Convert.ToInt32(requestID));
+            SqlParameter theDate = new SqlParameter("@theDate", date);
+            theDate.Direction = ParameterDirection.Input;
+            theDate.SqlDbType = SqlDbType.VarChar;
+            theDate.Size = 50;
+            objCommand.Parameters.Add(theDate);
+            SqlParameter theTime = new SqlParameter("@theTime", time);
+            theTime.Direction = ParameterDirection.Input;
+            theTime.SqlDbType = SqlDbType.VarChar;
+            theTime.Size = 50;
+            objCommand.Parameters.Add(theTime);
+            SqlParameter theLocation = new SqlParameter("@theLocation", Location);
+            theLocation.Direction = ParameterDirection.Input;
+            theLocation.SqlDbType = SqlDbType.VarChar;
+            theLocation.Size = 50;
+            objCommand.Parameters.Add(theLocation);
+            
+            objCommand.Parameters.Add(inputParameter);*/
+            
+            objCommand.Parameters.AddWithValue("@theRequestID",requestID);
             objCommand.Parameters.AddWithValue("@theDate", date);
             objCommand.Parameters.AddWithValue("@theTime", time);
             objCommand.Parameters.AddWithValue("@theLocation", Location);

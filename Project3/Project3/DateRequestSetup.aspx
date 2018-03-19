@@ -39,10 +39,13 @@
     <form id="form1" runat="server">
     <div>
         DATE PARTICIPANTS<br />
-        <asp:GridView ID="gvParticipants" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal">
+        <asp:GridView ID="gvParticipants" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" OnLoad="gvParticipants_Load">
             <Columns>
                 <asp:BoundField DataField="Sender" HeaderText="Participant 1" />
                 <asp:BoundField DataField="Receiver" HeaderText="Participant 2" />
+                <asp:BoundField DataField="Date" Visible="True" NullDisplayText=" " />
+                <asp:BoundField DataField="Time" Visible="True" NullDisplayText=" " />
+                <asp:BoundField DataField="Location" Visible="True" HtmlEncode="False" NullDisplayText=" " />
             </Columns>
             <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
             <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
@@ -60,16 +63,16 @@
         <br />
         <br />
         DATE:
-        <asp:TextBox ID="txtDate" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtDate" runat="server" MaxLength="50" ValidateRequestMode="Disabled"></asp:TextBox>
         <br />
         TIME:
-        <asp:TextBox ID="txtTime" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtTime" runat="server" MaxLength="50" ValidateRequestMode="Disabled"></asp:TextBox>
         <br />
         LOCATION:
-        <asp:TextBox ID="txtLocation" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtLocation" runat="server" MaxLength="50" ValidateRequestMode="Disabled"></asp:TextBox>
         <br />
         <br />
-        <asp:Button ID="btnUpdate" runat="server" OnClick="btnUpdate_Click" Text="Update Date" />
+        <asp:Button ID="btnUpdate" runat="server" OnClick="btnUpdate_Click" Text="Update Date" CausesValidation="False" UseSubmitBehavior="False" />
     </div>
     </form>
 </body>
