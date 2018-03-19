@@ -72,7 +72,14 @@ namespace MembersLibrary
             return objDB.GetDataSetUsingCmdObj(objCommand);
         }
 
-
+        public static DataSet getActiveDates(String member)
+        {
+            SqlCommand objCommand = new SqlCommand();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "GetActiveDates"; //ADD
+            objCommand.Parameters.AddWithValue("@user", member);
+            return objDB.GetDataSetUsingCmdObj(objCommand);
+        }
 
     }
 }

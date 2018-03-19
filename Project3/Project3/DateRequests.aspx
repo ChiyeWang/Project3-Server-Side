@@ -10,7 +10,7 @@
     <form id="form1" runat="server">
     <div>
     <h1>ACTIVE DATES</h1>
-        <asp:GridView ID="gvActive" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" EmptyDataText="None at this time">
+        <asp:GridView ID="gvActive" runat="server" AutoPostBack="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" EmptyDataText="None at this time" OnSelectedIndexChanged="gvActive_SelectedIndexChanged">
             <Columns>
                 <asp:BoundField DataField="RequestID" Visible="False" />
                 <asp:BoundField DataField="Sender" HeaderText="Partcipant 1" />
@@ -31,11 +31,20 @@
         </asp:GridView>
         <br />
         <h1>DATE REQUESTS RECEIVED</h1>
-        <asp:GridView ID="gvReceived" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" EmptyDataText="None at this time">
+        <asp:GridView ID="gvReceived" runat="server" AutoPostBack="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" EmptyDataText="None at this time" OnSelectedIndexChanged="gvReceived_SelectedIndexChanged" Width="250px">
             <Columns>
+                <asp:BoundField DataField="RequestID" Visible="False" />
                 <asp:BoundField DataField="Sender" HeaderText="Sent By" />
-                <asp:CommandField ButtonType="Button" SelectText="ACCEPT" ShowCancelButton="False" ShowSelectButton="True" />
-                <asp:CommandField ButtonType="Button" SelectText="DECLINE" ShowCancelButton="False" ShowSelectButton="True" />
+                <asp:TemplateField>
+                    <ItemTemplate>
+                        <asp:Button ID="btnAccept" runat="server" CausesValidation="False" OnClick="btnAccept_Click" PostBackUrl="~/DateRequests.aspx" Text="ACCEPT" ToolTip="Accept this date request" UseSubmitBehavior="False" />
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField>
+                    <ItemTemplate>
+                        <asp:Button ID="btnDecline" runat="server" CausesValidation="False" OnClick="btnDecline_Click" PostBackUrl="~/DateRequests.aspx" Text="DECLINE" UseSubmitBehavior="False" />
+                    </ItemTemplate>
+                </asp:TemplateField>
             </Columns>
             <EmptyDataTemplate>
                 No current date requests received
@@ -51,8 +60,9 @@
         </asp:GridView>
         <br />
         <h1>DATE REQUESTS SENT</h1>
-        <asp:GridView ID="gvSent" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" EmptyDataText="None at this time">
+        <asp:GridView ID="gvSent" runat="server" AutoPostBack="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" EmptyDataText="None at this time">
             <Columns>
+                <asp:BoundField DataField="RequestID" Visible="False" />
                 <asp:BoundField DataField="Receiver" HeaderText="Sent To" />
                 <asp:BoundField DataField="Status" HeaderText="Status" />
             </Columns>
