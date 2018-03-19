@@ -65,14 +65,13 @@ namespace MembersLibrary
             objDB.GetDataSetUsingCmdObj(objCommand);
         }
 
-        public static void deleteMessage(String conversationID, String user, String content)
+        public static void deleteMessage(int messageID)
         {
             SqlCommand objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
-            objCommand.CommandText = "InsertMessage"; //ADD
-            objCommand.Parameters.AddWithValue("conversationID", conversationID);
-            objCommand.Parameters.AddWithValue("sender", user);
-            objCommand.Parameters.AddWithValue("content", content);
+            objCommand.CommandText = "DeleteMessage"; //ADD
+            objCommand.Parameters.AddWithValue("MessageID", messageID);
+            
             objDB.GetDataSetUsingCmdObj(objCommand);
         }
     }
