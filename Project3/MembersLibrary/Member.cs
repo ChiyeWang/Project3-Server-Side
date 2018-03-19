@@ -24,7 +24,7 @@ namespace MembersLibrary
         public string height { set; get; }
         public string commitmentType { set; get; }
         public string likes { set; get; }
-        public string profilePhoto { set; get; }
+        public string jobType { set; get; }
 
         //Private properties that only members can see
         public string phoneNumber { set; get; }
@@ -41,6 +41,38 @@ namespace MembersLibrary
             this.password = Password;
             this.fullName = FullName;
             this.emailAddress = EmailAddress;
+        }
+
+        public Member(string Username, string State, string Description, string Address, string ContactEmail, string Age, string Height, string CommitmentType,string Likes, string JobType, string phone, string city, string occupation, string favorites)
+        {
+            this.userName = Username;
+            this.age = Age;
+            this.state = State;
+            this.description = Description;
+            this.contactEmail = ContactEmail;
+            this.commitmentType = CommitmentType;
+            this.likes = Likes;
+            this.height = Height;
+            this.address = Address;
+            this.jobType = JobType;
+            this.phoneNumber = phone;
+            this.city = city;
+            this.occupation = occupation;
+            this.favorites = favorites;
+        }
+
+        public Member(string fullname, string State, string Description, string ContactEmail, string Age, string Height, string CommitmentType, string Likes, string JobType, string occupation)
+        {
+            this.fullName = fullname;
+            this.age = Age;
+            this.state = State;
+            this.description = Description;
+            this.contactEmail = ContactEmail;
+            this.commitmentType = CommitmentType;
+            this.likes = Likes;
+            this.height = Height;
+            this.jobType = JobType;
+            this.occupation = occupation;
         }
 
         //you can simplify propertiese of a class to shorthand {set;get;}!
