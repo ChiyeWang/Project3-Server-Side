@@ -47,6 +47,16 @@ namespace MembersLibrary
             SqlCommand objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
             objCommand.CommandText = "UpdateDate"; //ADD
+
+            SqlParameter input = new SqlParameter("theRequestID", requestID);
+            objCommand.Parameters.Add(input);
+            input = new SqlParameter("theDate", date);
+            objCommand.Parameters.Add(input);
+            input = new SqlParameter("theTime", time);
+            objCommand.Parameters.Add(input);
+            input = new SqlParameter("theLocation", Location);
+            objCommand.Parameters.Add(input);
+            
             /*
             SqlParameter request = new SqlParameter("@theRequestID", requestID);
             request.Direction = ParameterDirection.Input;
@@ -71,11 +81,14 @@ namespace MembersLibrary
             objCommand.Parameters.Add(theLocation);
             
             objCommand.Parameters.Add(inputParameter);*/
-            
+            /*
+            SqlParameter input = new SqlParameter("city", member.city);
+            obj.Parameters.Add(input);
+            input = new SqlParameter("state", member.state);
             objCommand.Parameters.AddWithValue("@theRequestID",requestID);
             objCommand.Parameters.AddWithValue("@theDate", date);
             objCommand.Parameters.AddWithValue("@theTime", time);
-            objCommand.Parameters.AddWithValue("@theLocation", Location);
+            objCommand.Parameters.AddWithValue("@theLocation", Location);*/
             objDB.GetDataSetUsingCmdObj(objCommand);
         }
 

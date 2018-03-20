@@ -21,8 +21,12 @@ namespace Project3
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack) {
-                //Session["User"] = "Ed"; //DEBUG ACCOUNT
+            if (!IsPostBack)
+            {
+                if (Session["UserType"].ToString() == "v")
+                {
+                    Response.Redirect("/search.aspx");
+                }
 
                 username = Session["User"].ToString();
                 bindData();

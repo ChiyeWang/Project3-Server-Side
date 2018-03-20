@@ -21,8 +21,9 @@ namespace MembersLibrary
             SqlCommand objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
             objCommand.CommandText = "NewConversation"; //ADD
-            objCommand.Parameters.AddWithValue("Sender", sender);
-            objCommand.Parameters.AddWithValue("Receiver", receiver);
+            objCommand.Parameters.AddWithValue("ConversationID", "sender"+"receiver");
+            objCommand.Parameters.AddWithValue("user1", sender);
+            objCommand.Parameters.AddWithValue("user2", receiver);
             objDB.GetDataSetUsingCmdObj(objCommand);
         }
         public static DataSet searchConversation(String sender, String receiver)
