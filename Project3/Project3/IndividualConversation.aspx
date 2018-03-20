@@ -38,7 +38,7 @@
     <form id="form1" runat="server">
     <div>
         <h1>YOUR CONVERSATION</h1>
-        <asp:GridView ID="gvMessages" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" ShowHeader="False" AutoGenerateSelectButton="True" OnSelectedIndexChanged="gvMessages_SelectedIndexChanged">
+        <asp:GridView ID="gvMessages" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="White" BorderWidth="20px" CellPadding="10" ForeColor="Black" GridLines="Horizontal" ShowHeader="False" AutoGenerateSelectButton="True" OnSelectedIndexChanged="gvMessages_SelectedIndexChanged">
             <Columns>
                 <asp:BoundField DataField="Sender" />
                 <asp:BoundField DataField="Content" />

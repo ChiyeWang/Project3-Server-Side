@@ -65,6 +65,11 @@
             <asp:Label ID="lblContactEmailOutput" runat="server" Text="Label"></asp:Label>
 
 
+            <br />
+            <asp:Button ID="btnMessage" runat="server" OnClick="btnMessage_Click" Text="Message" />
+            <asp:Button ID="btnRequest" runat="server" Text="Request Date" />
+
+
         </div>
     </form>
 </body>

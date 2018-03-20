@@ -15,11 +15,16 @@ namespace Project3
         DataSet ds = objDB.GetDataSet("SELECT * FROM Conversation");
         protected void Page_Load(object sender, EventArgs e)
         {
-            //DEBUG - USER Kristina
-            String user = "Jen";
-            //String user = Session["User"].ToString();
-            gvAllConversations.DataSource = CommunicationClass.myConversation(user);
-            gvAllConversations.DataBind();
+            if (!IsPostBack)
+            {
+                if (Session["UserType"].ToString() == "v")
+                {
+                    Response.Redirect("/search.aspx");
+                }
+                String user = Session["User"].ToString();
+                gvAllConversations.DataSource = CommunicationClass.myConversation(user);
+                gvAllConversations.DataBind();
+            }
         }
 
         protected void gvAllConversations_SelectedIndexChanged(object sender, EventArgs e)

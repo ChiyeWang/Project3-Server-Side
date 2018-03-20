@@ -52,6 +52,7 @@
                 <asp:BoundField DataField="Likes" HeaderText="Likes" />
                 <asp:BoundField DataField="Description" HeaderText="Description" />
                 <asp:CommandField ButtonType="Button" SelectText="View" ShowSelectButton="True" />
+                <asp:BoundField DataField="Username" HeaderText="" Visible="false" />
             </Columns>
         </asp:GridView>
         <asp:GridView ID="gvPublicResult" runat="server" AutoGenerateColumns="False" Style="z-index: 1; left: 7px; top: 376px; position: absolute; height: 188px; width: 1052px" Visible="False" Width="1052px" OnSelectedIndexChanged="gvPublicResult_SelectedIndexChanged">
@@ -64,6 +65,7 @@
                 <asp:BoundField DataField="Height" HeaderText="Height" />
                 <asp:BoundField DataField="Description" HeaderText="Description" />
                 <asp:CommandField ButtonType="Button" NewText="View" SelectText="View" ShowSelectButton="True" />
+                <asp:BoundField DataField="Username" HeaderText="Username" Visible="true" />
             </Columns>
         </asp:GridView>
     </form>

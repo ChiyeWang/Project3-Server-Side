@@ -18,10 +18,10 @@ namespace Project3
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            //conversationID = Session["conversationID"].ToString();
+            conversationID = Session["conversationID"].ToString();
             //debug
-            conversationID = "BobJen";
-            user = "Bob";//DEBUG
+            //conversationID = "BobJen";
+            user = Session["User"].ToString();
             gvMessages.DataSource = CommunicationClass.getMessages(conversationID);
             gvMessages.DataBind();
         }
