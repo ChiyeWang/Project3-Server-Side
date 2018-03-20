@@ -44,7 +44,7 @@
             <asp:TextBox ID="txtSearchOccupation" runat="server"></asp:TextBox>
             <asp:Button ID="btnSearchOccupation" runat="server" Text="Search" OnClick="btnSearchOccupation_Click" />
         </div>
-        <asp:GridView ID="gvGuestResult" runat="server" AutoGenerateColumns="False" Visible="False" Width="864px" OnSelectedIndexChanged="gvGuestResult_SelectedIndexChanged" >
+        <asp:GridView ID="gvGuestResult" runat="server" AutoGenerateColumns="False" Visible="False" Width="864px" OnSelectedIndexChanged="gvGuestResult_SelectedIndexChanged" EmptyDataText="No record found" >
             <Columns>
                 <asp:BoundField DataField="Fullname" HeaderText="Name" />
                 <asp:BoundField DataField="State" HeaderText="State" />
@@ -55,7 +55,7 @@
                 <asp:BoundField DataField="Username" HeaderText="" Visible="false" />
             </Columns>
         </asp:GridView>
-        <asp:GridView ID="gvPublicResult" runat="server" AutoGenerateColumns="False" Style="z-index: 1; left: 7px; top: 376px; position: absolute; height: 188px; width: 1052px" Visible="False" Width="1052px" OnSelectedIndexChanged="gvPublicResult_SelectedIndexChanged">
+        <asp:GridView ID="gvPublicResult" runat="server" AutoGenerateColumns="False" Style="z-index: 1; left: 6px; top: 365px; position: absolute; height: 188px; width: 1052px" Visible="False" Width="1052px" OnSelectedIndexChanged="gvPublicResult_SelectedIndexChanged" EmptyDataText="No record found ">
             <Columns>
                 <asp:BoundField DataField="Fullname" HeaderText="Name" />
                 <asp:BoundField DataField="State" HeaderText="State" />

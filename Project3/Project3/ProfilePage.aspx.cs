@@ -31,12 +31,27 @@ namespace Project3
 
         protected void btnModify_Click(object sender, EventArgs e)
         {
-            TurnReadOnly();
-            username = (string)Session["User"].ToString();
-            user = new Member(username, txtState.Text.ToLower(), txtDescription.Text, txtAddress.Text, txtEmailAddress.Text, 
-                              txtAge.Text, txtHeight.Text, ddlCommitmentType.Text, txtLikes.Text, txtJobType.Text, 
-                              txtPhone.Text, txtCity.Text, txtOccupation.Text.ToLower(), txtFavorites.Text);
-            obj.updateProfile(user);
+
+            
+            if (btnModify.Text == "Modify Profile Transaction")
+            {
+                Enable();
+                lblMessage.Text = "You can enter the information now!!!";
+                lblMessage.Visible = true;
+                btnModify.Text = "finished with profile";
+            }
+            else if (btnModify.Text == "finished with profile")
+            {
+                username = (string)Session["user"].ToString();
+                user = new Member(username, txtState.Text.ToLower(), txtDescription.Text, txtAddress.Text, txtEmailAddress.Text,
+                                  txtAge.Text, txtHeight.Text, ddlCommitmentType.Text, txtLikes.Text, txtJobType.Text,
+                                  txtPhone.Text, txtCity.Text, txtOccupation.Text.ToLower(), txtFavorites.Text);
+                obj.updateProfile(user);
+                lblMessage.Text = "Profile successfully updated!!!";
+                lblMessage.Visible = true;
+                btnModify.Text = "Modify Profile Transaction";
+            }
+
         }
 
         public void display(Member member)
@@ -56,7 +71,7 @@ namespace Project3
             txtPhone.Text = member.phoneNumber;
         }
 
-        public void TurnReadOnly()
+        public void Enable()
         {
             txtState.Enabled = true;
             txtEmailAddress.Enabled = true;
@@ -73,5 +88,12 @@ namespace Project3
             ddlCommitmentType.Enabled = true;
         }
 
+        protected void btnRemove_Click(object sender, EventArgs e)
+        {
+            username = (string)Session["User"].ToString();
+            obj.RemovePublicTransaction(username, "inactive");
+            lblMessage.Text = "Nobody can search you !!!";
+            lblMessage.Visible = true;
+        }
     }
 }

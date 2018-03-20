@@ -115,9 +115,11 @@
             </div>
             </div>
         <br />
+        <asp:Label ID="lblMessage" runat="server" Text="" Visible="false"></asp:Label>
+        <br />
         <asp:Button ID="btnModify" runat="server" Text="Modify Profile Transaction" OnClick="btnModify_Click" />
         &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-        <asp:Button ID="btnRemove" runat="server" Text="Remove Public Profile Transaction" />
+        <asp:Button ID="btnRemove" runat="server" Text="Remove Public Profile Transaction" OnClick="btnRemove_Click" />
 
     </form>
 </body>
