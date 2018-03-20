@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DateRequests.aspx.cs" Inherits="Project3.DateRequests" %>
+﻿   <%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DateRequests.aspx.cs" Inherits="Project3.DateRequests" %>
 
 <!DOCTYPE html>
 
@@ -28,7 +28,7 @@
                 <a class="navbar-brand" style="font-size:40px" >StudentMeetStudent</a>
             </div>
             <ul class="nav navbar-nav" style="font-size:20px">
-                <li><a href="../ProfilePage.aspx">Profile</a></li>
+                <li><a href="../Project3/ProfilePage.aspx">Profile</a></li>
                 <li><a href="../search.aspx">Search</a></li>
                 <li><a href="../DateRequests.aspx">Requests</a></li>
                 <li><a href="../AllConversations.aspx">Messages</a></li>
