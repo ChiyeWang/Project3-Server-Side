@@ -46,5 +46,12 @@ namespace Project3
             lblNameOutput.Text = member.fullName;
             lblOccupationOutput.Text = member.occupation;
         }
+
+        protected void btnMessage_Click(object sender, EventArgs e)
+        {
+            CommunicationClass.newConversation(Session["User"].ToString(), Session["ViewProfileUsername"].ToString());
+            Session["communicationID"]= Session["User"].ToString()+ Session["ViewProfileUsername"].ToString();
+            Response.Redirect("/AllConversations.aspx");
+        }
     }
 }

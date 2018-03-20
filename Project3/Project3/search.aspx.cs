@@ -81,6 +81,7 @@ namespace Project3
         {
             string name = gvGuestResult.SelectedRow.Cells[0].Text;
             Session["name"] = name;
+            Session["ViewProfileUsername"] = gvGuestResult.SelectedRow.Cells[6].Text;
             Response.Redirect("ViewProfile.aspx");
         }
 
@@ -88,6 +89,7 @@ namespace Project3
         {
             string name = gvPublicResult.SelectedRow.Cells[0].Text;
             Session["name"] = name;
+                Session["ViewProfileUsername"] = gvPublicResult.SelectedRow.Cells[8].Text;
             Response.Redirect("ViewProfile.aspx");
         }
     }

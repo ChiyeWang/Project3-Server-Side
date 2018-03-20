@@ -27,7 +27,7 @@
                 <a class="navbar-brand" style="font-size:40px" >StudentMeetStudent</a>
             </div>
             <ul class="nav navbar-nav" style="font-size:20px">
-                <li><a href="../ProfilePage.aspx">Profile</a></li>
+               <li><a href="../Project3/ProfilePage.aspx">Profile</a></li>
                 <li><a href="../search.aspx">Search</a></li>
                 <li><a href="../DateRequests.aspx">Requests</a></li>
                 <li><a href="../AllConversations.aspx">Messages</a></li>
@@ -38,7 +38,7 @@
     <form id="form1" runat="server">
     <div>
         <h1>YOUR CONVERSATION</h1>
-        <asp:GridView ID="gvMessages" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" ShowHeader="False" AutoGenerateSelectButton="True" OnSelectedIndexChanged="gvMessages_SelectedIndexChanged">
+        <asp:GridView ID="gvMessages" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="White" BorderWidth="20px" CellPadding="10" ForeColor="Black" GridLines="Horizontal" ShowHeader="False" AutoGenerateSelectButton="True" OnSelectedIndexChanged="gvMessages_SelectedIndexChanged">
             <Columns>
                 <asp:BoundField DataField="Sender" />
                 <asp:BoundField DataField="Content" />

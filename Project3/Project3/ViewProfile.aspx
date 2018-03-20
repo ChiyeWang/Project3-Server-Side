@@ -17,7 +17,7 @@
                 <a class="navbar-brand" style="font-size:40px" >StudentMeetStudent</a>
             </div>
             <ul class="nav navbar-nav" style="font-size:20px">
-                <li><a href="../ProfilePage.aspx">Profile</a></li>
+               <li><a href="../Project3/ProfilePage.aspx">Profile</a></li>
                 <li><a href="../search.aspx">Search</a></li>
                 <li><a href="../DateRequests.aspx">Requests</a></li>
                 <li><a href="../AllConversations.aspx">Messages</a></li>
@@ -63,6 +63,11 @@
             &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
             <asp:Label ID="lblContactEmail" runat="server" Text="Contact Email:"></asp:Label>
             <asp:Label ID="lblContactEmailOutput" runat="server" Text="Label"></asp:Label>
+
+
+            <br />
+            <asp:Button ID="btnMessage" runat="server" OnClick="btnMessage_Click" Text="Message" />
+            <asp:Button ID="btnRequest" runat="server" Text="Request Date" />
 
 
         </div>

@@ -28,10 +28,10 @@
                 <a class="navbar-brand" style="font-size:40px" >StudentMeetStudent</a>
             </div>
             <ul class="nav navbar-nav" style="font-size:20px">
-                <li><a href="../ProfilePage.aspx">Profile</a></li>
-                <li><a href="../search.aspx">Search</a></li>
-                <li><a href="../DateRequests.aspx">Requests</a></li>
-                <li><a href="../AllConversations.aspx">Messages</a></li>
+                <li><a href="../Project3//ProfilePage.aspx">Profile</a></li>
+                <li><a href="../Project3//search.aspx">Search</a></li>
+                <li><a href="../Project3//DateRequests.aspx">Requests</a></li>
+                <li><a href="../Project3//AllConversations.aspx">Messages</a></li>
                 <li class="active"><a href="../Login.aspx">Log out</a></li>
             </ul>
         </div>
@@ -40,9 +40,9 @@
         
            <h1>YOUR MESSAGES</h1>
             To see conversation, click the "Select" button to the left of the conversation.
-            <asp:GridView ID="gvAllConversations" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" ShowHeader="False" AutoGenerateSelectButton="True" OnSelectedIndexChanged="gvAllConversations_SelectedIndexChanged" CellSpacing="3">
+            <asp:GridView ID="gvAllConversations" runat="server" BackColor="White" BorderColor="White" BorderWidth="20px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" ShowHeader="False" AutoGenerateSelectButton="True" OnSelectedIndexChanged="gvAllConversations_SelectedIndexChanged" CellSpacing="10" AutoGenerateColumns="False" EmptyDataText="No Messages at this time" Width="275px">
                 <Columns>
-                    <asp:BoundField DataField="Receiver" Visible="False" />
+                    <asp:BoundField DataField="Receiver" />
                 </Columns>
                 <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
                 <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />

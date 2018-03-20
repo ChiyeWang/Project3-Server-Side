@@ -21,8 +21,12 @@ namespace Project3
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack) {
-                Session["User"] = "Ed"; //DEBUG ACCOUNT
+            if (!IsPostBack)
+            {
+                if (Session["UserType"].ToString() == "v")
+                {
+                    Response.Redirect("/search.aspx");
+                }
 
                 username = Session["User"].ToString();
                 bindData();
@@ -43,7 +47,7 @@ namespace Project3
         {
             requestIDString = gvActive.SelectedRow.Cells[0].Text;
             Session["RequestID"] = requestIDString;
-            Response.Redirect("~/DateRequestSetup.aspx");
+            //Response.Redirect("~/DateRequestSetup.aspx");
             //Response.Write("ID STRING: "+requestIDString);
         }
 
@@ -84,13 +88,17 @@ namespace Project3
             if (e.CommandName == "SeeConversation")
             {
                 int rowIndex = Convert.ToInt32(e.CommandArgument);
-                //requestIDString = gvReceived.SelectedRow.Cells[0].Text;
                 requestIDString = gvActive.Rows[rowIndex].Cells[0].Text;
-                //requestID = Convert.ToInt32(requestIDString); //DEBUG HERE
+                //DataSet getRequestID = DateRequestClass.getActiveDates(username);
+
+
+                // requestID = Convert.ToInt32(requestIDString); //DEBUG HERE
                 Session["RequestID"] = requestIDString;
-                Response.Redirect("~/DateRequestSetup.aspx");
+                
+                //Response.Write(requestIDString);
+                //Response.Redirect("~/DateRequestSetup.aspx");
                 //DateRequestClass.acceptDate(requestID);
-                bindData();
+                //bindData();
             }
         }
     }

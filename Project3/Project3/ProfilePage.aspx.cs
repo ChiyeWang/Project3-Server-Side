@@ -18,7 +18,11 @@ namespace Project3
         {
             if (!IsPostBack)
             {
-                username = (string)Session["user"].ToString();
+                if (Session["UserType"].ToString() == "v")
+                {
+                    Response.Redirect("/search.aspx");
+                }
+                username = (string)Session["User"].ToString();
                 lblWelcome.Text = "Welcome " + username + ", this is your profile page, you can modify your profile and click modify to start and click the button again to save. You also can keep your profile private by clicking on remove public profile transaction.";
                 user = obj.memberPublic(username);
                 display(user);
@@ -27,6 +31,7 @@ namespace Project3
 
         protected void btnModify_Click(object sender, EventArgs e)
         {
+
             
             if (btnModify.Text == "Modify Profile Transaction")
             {
@@ -46,6 +51,7 @@ namespace Project3
                 lblMessage.Visible = true;
                 btnModify.Text = "Modify Profile Transaction";
             }
+
         }
 
         public void display(Member member)

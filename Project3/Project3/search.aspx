@@ -16,7 +16,7 @@
                 <a class="navbar-brand" style="font-size:40px" >StudentMeetStudent</a>
             </div>
             <ul class="nav navbar-nav" style="font-size:20px">
-                <li><a href="../ProfilePage.aspx">Profile</a></li>
+                <li><a href="../Project3/ProfilePage.aspx">Profile</a></li>
                 <li><a href="../search.aspx">Search</a></li>
                 <li><a href="../DateRequests.aspx">Requests</a></li>
                 <li><a href="../AllConversations.aspx">Messages</a></li>
@@ -52,6 +52,7 @@
                 <asp:BoundField DataField="Likes" HeaderText="Likes" />
                 <asp:BoundField DataField="Description" HeaderText="Description" />
                 <asp:CommandField ButtonType="Button" SelectText="View" ShowSelectButton="True" />
+                <asp:BoundField DataField="Username" HeaderText="" Visible="false" />
             </Columns>
         </asp:GridView>
         <asp:GridView ID="gvPublicResult" runat="server" AutoGenerateColumns="False" Style="z-index: 1; left: 6px; top: 365px; position: absolute; height: 188px; width: 1052px" Visible="False" Width="1052px" OnSelectedIndexChanged="gvPublicResult_SelectedIndexChanged" EmptyDataText="No record found ">
@@ -64,6 +65,7 @@
                 <asp:BoundField DataField="Height" HeaderText="Height" />
                 <asp:BoundField DataField="Description" HeaderText="Description" />
                 <asp:CommandField ButtonType="Button" NewText="View" SelectText="View" ShowSelectButton="True" />
+                <asp:BoundField DataField="Username" HeaderText="Username" Visible="true" />
             </Columns>
         </asp:GridView>
     </form>
