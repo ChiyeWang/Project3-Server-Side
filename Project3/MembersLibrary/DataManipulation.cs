@@ -126,7 +126,9 @@ namespace MembersLibrary
             obj.Parameters.Add(input);
             input = new SqlParameter("favorites", member.favorites);
             obj.Parameters.Add(input);
-            input = new SqlParameter("@Username", member.userName);
+            input = new SqlParameter("userName", member.userName);
+            obj.Parameters.Add(input);
+            input = new SqlParameter("active", "active");
             obj.Parameters.Add(input);
             objDB.DoUpdateUsingCmdObj(obj);
 
@@ -142,7 +144,8 @@ namespace MembersLibrary
             obj.CommandText = "GuestSearchByState";
             SqlParameter input = new SqlParameter("state", state);
             obj.Parameters.Add(input);
-
+            input = new SqlParameter("active", "active");
+            obj.Parameters.Add(input);
             DataSet ds = objDB.GetDataSetUsingCmdObj(obj);
             return ds;
         }
@@ -157,6 +160,8 @@ namespace MembersLibrary
             obj.CommandText = "PublicSearchByState";
             SqlParameter input = new SqlParameter("state", state);
             obj.Parameters.Add(input);
+            input = new SqlParameter("active", "active");
+            obj.Parameters.Add(input);
 
             DataSet ds = objDB.GetDataSetUsingCmdObj(obj);
             return ds;
@@ -169,6 +174,8 @@ namespace MembersLibrary
             obj.CommandType = CommandType.StoredProcedure;
             obj.CommandText = "GuestSearchByCommitment";
             SqlParameter input = new SqlParameter("commitmentType", ct);
+            obj.Parameters.Add(input);
+            input = new SqlParameter("active", "active");
             obj.Parameters.Add(input);
 
             DataSet ds = objDB.GetDataSetUsingCmdObj(obj);
@@ -183,6 +190,8 @@ namespace MembersLibrary
             obj.CommandText = "PublicSearchByCommitment";
             SqlParameter input = new SqlParameter("commitmentType", ct);
             obj.Parameters.Add(input);
+            input = new SqlParameter("active", "active");
+            obj.Parameters.Add(input);
 
             DataSet ds = objDB.GetDataSetUsingCmdObj(obj);
             return ds;
@@ -195,6 +204,8 @@ namespace MembersLibrary
             obj.CommandText = "PublicSearchByAge";
             SqlParameter input = new SqlParameter("age", age);
             obj.Parameters.Add(input);
+            input = new SqlParameter("active", "active");
+            obj.Parameters.Add(input);
 
             DataSet ds = objDB.GetDataSetUsingCmdObj(obj);
             return ds;
@@ -206,6 +217,8 @@ namespace MembersLibrary
             obj.CommandType = CommandType.StoredProcedure;
             obj.CommandText = "PublicSearchByOccupation";
             SqlParameter input = new SqlParameter("occupation", occu);
+            obj.Parameters.Add(input);
+            input = new SqlParameter("active", "active");
             obj.Parameters.Add(input);
 
             DataSet ds = objDB.GetDataSetUsingCmdObj(obj);
@@ -224,6 +237,17 @@ namespace MembersLibrary
             Member user = new Member(dt.Rows[0][0].ToString(), dt.Rows[0][1].ToString(), dt.Rows[0][8].ToString(), dt.Rows[0][9].ToString(),
                                     dt.Rows[0][3].ToString(), dt.Rows[0][5].ToString(), dt.Rows[0][4].ToString(), dt.Rows[0][6].ToString(), dt.Rows[0][7].ToString(), dt.Rows[0][2].ToString());
             return user;
+        }
+
+        public void RemovePublicTransaction(string username, string active)
+        {
+            obj.CommandType = CommandType.StoredProcedure;
+            obj.CommandText = "CheckPublicTransaction";
+            SqlParameter input = new SqlParameter("active", active);
+            obj.Parameters.Add(input);
+            input = new SqlParameter("username", username);
+            obj.Parameters.Add(input);
+            objDB.DoUpdateUsingCmdObj(obj);
         }
 
     }
